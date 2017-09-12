@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>GOOGLE MAPS</title>
+    <link rel="stylesheet" href="google.css">
+  </head>
+  <body>
+    <h1>Google Maps</h1>
+    <form id="search">
+      <input type="text" id="lat">
+      <input type="text" id="lng">
+      <input type="submit">
+      <div id="mapGoesHere">
+
+      </div>
+
+      <script>
+      // function initMap(){
+      //   var students = [{
+      //     name: "surbhi",
+      //     lat: 40.718106,
+      //     lng: -73.844847
+      //   }, {
+      //     name: "jen",
+      //     lat: 40.681432,
+      //     lng: -73.994959
+      //   }]
+      // } another way of creating a database and then using a for-loop to print all markers.
+
+      document.querySelector('form').addEventListener('submit', function(event){
+        event.preventDefault();
+      })
+        function initMap(){//this function is being called in the google api
+          var map = new google.maps.Map(document.querySelector('#mapGoesHere'), {
+            zoom : 14, //how zoomed in you want your map to display
+            center: {lat:40.718106 , lng:-73.844847}
+          })
+          var marker = new google.maps.Marker({
+          position: {lat:40.718106 , lng:-73.844847},
+          map: map
+        });
+        }
+      </script>
+<!--async defer waits for everything else to load -->
+      <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzonjGntN8JiIKeU6fmtFB-vvlfI6XKug&callback=initMap">
+    </script>
+      <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+      <script src="google.js">
+
+      </script>
+    </form>
+  </body>
+</html>
